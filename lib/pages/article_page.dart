@@ -49,7 +49,7 @@ class _ArticlePageState extends State<ArticlePage> {
                 title: item['title'],
                 summary: item['summary'],
                 company: item['company'],
-                publishedAt: item['publishedAt']))
+                publishedAt: DateTime.parse(item['publishedAt'])))
             .toList());
         currentPage++;
         isLoading = false;

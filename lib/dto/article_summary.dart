@@ -3,7 +3,7 @@ class ArticleSummary {
   final String title;
   final String summary;
   final String company;
-  final String publishedAt;
+  final DateTime publishedAt;
 
   const ArticleSummary({
     required this.id,

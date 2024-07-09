@@ -18,7 +18,6 @@ class AppColors {
 
   static Color getCompanyColor(String companyName) {
     companyName = companyName.toLowerCase();
-    print(companyName);
     for (String key in _companyColors.keys) {
       if (companyName.contains(key)) {
         return _companyColors[key]!;

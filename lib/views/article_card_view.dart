@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nklcb/dto/article_summary.dart';
+import 'package:nklcb/utils/date_utils.dart';
 
 class ArticleCardView extends StatelessWidget {
   final ArticleSummary article;
@@ -36,7 +37,7 @@ class ArticleCardView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "${article.company} | ${article.publishedAt}",
+                        "${article.company} | ${DateTimeUtils.formatDate(article.publishedAt)}",
                         style:
                             TextStyle(color: Colors.grey[700], fontSize: 12.0),
                       ),
