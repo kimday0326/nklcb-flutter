@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nklcb/dto/article_summary.dart';
+import 'package:nklcb/pages/article_detail_page.dart';
 import 'package:nklcb/utils/date_utils.dart';
 
 class ArticleCardView extends StatelessWidget {
@@ -19,7 +20,12 @@ class ArticleCardView extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          print('Card tapped.');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ArticleDetailPage(articleId: article.id),
+            ),
+          );
         },
         child: Padding(
           padding: const EdgeInsets.all(16.0),
