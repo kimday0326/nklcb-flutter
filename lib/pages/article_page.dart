@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -17,18 +18,12 @@ class _ArticlePageState extends State<ArticlePage> {
   bool isLoading = false;
   int currentPage = 0;
   final int pageSize = 10;
-  final ScrollController _scrollController = ScrollController();
+  Timer? _debounce;
 
   @override
   void initState() {
     super.initState();
     fetchArticles();
-    _scrollController.addListener(() {
-      if (_scrollController.position.pixels ==
-          _scrollController.position.maxScrollExtent) {
-        fetchMoreArticles();
-      }
-    });
   }
 
   Future<void> fetchArticles() async {
@@ -63,8 +58,8 @@ class _ArticlePageState extends State<ArticlePage> {
   }
 
   Future<void> fetchMoreArticles() async {
-    if (isLoading) return;
     await fetchArticles();
+    debugPrint('Fetched more articles');
   }
 
   @override
@@ -72,8 +67,6 @@ class _ArticlePageState extends State<ArticlePage> {
     return Scaffold(
       body: Stack(
         children: [
-          ArticleListView(
-              articles: articles, scrollController: _scrollController),
           if (isLoading)
             const Positioned(
               left: 0,
@@ -81,14 +74,23 @@ class _ArticlePageState extends State<ArticlePage> {
               bottom: 0,
               child: Center(child: CircularProgressIndicator()),
             ),
+          NotificationListener(
+            onNotification: (ScrollNotification scrollNotification) {
+              if (_debounce?.isActive ?? false) _debounce?.cancel();
+              _debounce = Timer(const Duration(milliseconds: 200), () {
+                final maxScroll = scrollNotification.metrics.maxScrollExtent;
+                final currentScroll = scrollNotification.metrics.pixels;
+                final delta = MediaQuery.of(context).size.height * 0.50;
+                if (maxScroll - currentScroll <= delta) {
+                  fetchMoreArticles();
+                }
+              });
+              return false;
+            },
+            child: ArticleListView(articles: articles),
+          ),
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
   }
 }

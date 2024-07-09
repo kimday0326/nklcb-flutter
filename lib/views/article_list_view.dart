@@ -7,14 +7,12 @@ class ArticleListView extends StatelessWidget {
   final bool isAppBarVisible;
   final String appBarTitle;
   final List<ArticleSummary> articles;
-  final ScrollController scrollController;
 
   const ArticleListView({
     super.key,
     this.isAppBarVisible = false,
     this.appBarTitle = 'Articles',
     required this.articles,
-    required this.scrollController,
   });
 
   @override
@@ -27,7 +25,7 @@ class ArticleListView extends StatelessWidget {
             )
           : null,
       body: ListView.builder(
-        controller: scrollController,
+        controller: PrimaryScrollController.of(context),
         itemCount: articles.length,
         itemBuilder: (context, index) {
           return ArticleCardView(

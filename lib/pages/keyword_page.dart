@@ -17,7 +17,6 @@ class KeywordPage extends StatefulWidget {
 class _KeywordPageState extends State<KeywordPage> {
   List<Map> keywords = [];
   List<ArticleSummary> articles = [];
-  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -53,11 +52,12 @@ class _KeywordPageState extends State<KeywordPage> {
         Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => ArticleListView(
-                  isAppBarVisible: true,
-                  appBarTitle: keyword,
-                  articles: articles,
-                  scrollController: _scrollController)),
+            builder: (context) => ArticleListView(
+              isAppBarVisible: true,
+              appBarTitle: keyword,
+              articles: articles,
+            ),
+          ),
         );
       });
     } else {

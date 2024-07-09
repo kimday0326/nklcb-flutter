@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Widget infoContainer = Container(
   padding: const EdgeInsets.all(16.0),
-  margin: const EdgeInsets.only(bottom: 20.0),
+  // margin: const EdgeInsets.only(bottom: 20.0),
   decoration: BoxDecoration(
     border: Border.all(color: Colors.grey),
     borderRadius: BorderRadius.circular(10.0),

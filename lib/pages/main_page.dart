@@ -6,7 +6,7 @@ class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
   @override
-  _MainPageState createState() => _MainPageState();
+  State<MainPage> createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
@@ -21,6 +21,9 @@ class _MainPageState extends State<MainPage> {
 
   void _onItemTapped(int index) {
     setState(() {
+      final controller = PrimaryScrollController.of(context);
+      controller.animateTo(0,
+          duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
       _selectedIndex = index;
     });
   }
@@ -41,7 +44,7 @@ class _MainPageState extends State<MainPage> {
             label: 'Article',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.label),
             label: 'Keyword',
           ),
           BottomNavigationBarItem(

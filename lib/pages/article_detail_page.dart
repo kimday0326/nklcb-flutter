@@ -104,8 +104,8 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                       style: TextStyle(color: Colors.grey[700], fontSize: 14.0),
                     ),
                     const SizedBox(height: 16.0),
+                    infoContainer,
                     ArticleContentView(content: article.content),
-                    infoContainer
                   ],
                 ),
               ),
