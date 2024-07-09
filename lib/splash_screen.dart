@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nklcb/app_colors.dart';
-import 'package:nklcb/main_page.dart';
+import 'package:nklcb/constants/app_colors.dart';
+import 'package:nklcb/pages/main_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

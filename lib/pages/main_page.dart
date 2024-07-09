@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nklcb/article_list_page.dart';
+import 'package:nklcb/pages/article_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -12,7 +12,7 @@ class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[
-    ArticleListPage(),
+    ArticlePage(),
     Text('Keyword Page'),
     Text('Bookmark Page'),
     Text('Setting Page'),
@@ -27,7 +27,6 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // 상단 바를 제거
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
