@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:nklcb/constants/app_colors.dart';
 import 'package:nklcb/constants/info_container.dart';
 import 'package:nklcb/dto/article_detail.dart';
 import 'package:nklcb/utils/date_utils.dart';
@@ -50,6 +51,7 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Article'),
+        backgroundColor: AppColors.primaryColor,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {

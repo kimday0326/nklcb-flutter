@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nklcb/constants/app_colors.dart';
 import 'package:nklcb/splash_screen.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class NKLCBApp extends StatelessWidget {
     return MaterialApp(
       title: 'NKLCB',
       theme: ThemeData(
-        primaryColor: const Color(0xFFEEEEEE),
+        primaryColor: AppColors.primaryColor,
         fontFamily: 'NanumSquare',
         textTheme: const TextTheme(
           displayLarge: TextStyle(

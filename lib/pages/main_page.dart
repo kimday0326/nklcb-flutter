@@ -14,7 +14,7 @@ class _MainPageState extends State<MainPage> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     ArticlePage(),
-    KeywordPage(title: "title"),
+    KeywordPage(),
     Text('Bookmark Page'),
     Text('Setting Page'),
   ];

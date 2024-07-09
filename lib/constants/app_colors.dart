@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 class AppColors {
+  static const Color primaryColor = Color(0xFFEEEEEE);
   static const Color naverGreen = Color(0xFF2DB400);
   static const Color kakaoYellow = Color(0xFFFFCD00);
   static const Color lineGreen = Color(0xFF06C755);

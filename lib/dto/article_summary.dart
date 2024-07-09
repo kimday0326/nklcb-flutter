@@ -12,4 +12,14 @@ class ArticleSummary {
     required this.company,
     required this.publishedAt,
   });
+
+  factory ArticleSummary.fromJson(Map<String, dynamic> json) {
+    return ArticleSummary(
+      id: json['id'],
+      title: json['title'],
+      summary: json['summary'],
+      publishedAt: DateTime.parse(json['publishedAt']),
+      company: json['company'],
+    );
+  }
 }
