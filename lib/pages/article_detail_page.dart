@@ -2,8 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:nklcb/constants/info_container.dart';
 import 'package:nklcb/dto/article_detail.dart';
+import 'package:nklcb/pages/article_content_view.dart';
 import 'package:nklcb/utils/date_utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ArticleDetailPage extends StatefulWidget {
   final int articleId;
@@ -35,10 +38,18 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
     }
   }
 
+  Future<void> _launchUrl(String url) async {
+    Uri uri = Uri.parse(url);
+    if (!await launchUrl(uri)) {
+      throw Exception('Could not launch $uri');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Article'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -55,11 +66,8 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
           IconButton(
             icon: const Icon(Icons.link),
             onPressed: () async {
-              // if (await canLaunch(article.originalLink)) {
-              //   await launch(article.originalLink);
-              // } else {
-              //   // 오류 처리
-              // }
+              final article = await articleDetailFuture;
+              _launchUrl(article.link);
             },
           ),
         ],
@@ -76,28 +84,28 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
           } else {
             final article = snapshot.data!;
             return Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    article.title,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24.0,
+              padding: const EdgeInsets.all(10.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      article.title,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24.0,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 8.0),
-                  Text(
-                    "${article.company} | ${DateTimeUtils.formatDate(article.publishedAt)}",
-                    style: TextStyle(color: Colors.grey[700], fontSize: 14.0),
-                  ),
-                  const SizedBox(height: 16.0),
-                  Text(
-                    article.content,
-                    style: const TextStyle(fontSize: 16.0),
-                  ),
-                ],
+                    const SizedBox(height: 8.0),
+                    Text(
+                      "${article.company} | ${DateTimeUtils.formatDate(article.publishedAt)}",
+                      style: TextStyle(color: Colors.grey[700], fontSize: 14.0),
+                    ),
+                    const SizedBox(height: 16.0),
+                    ArticleContentView(content: article.content),
+                    infoContainer
+                  ],
+                ),
               ),
             );
           }
