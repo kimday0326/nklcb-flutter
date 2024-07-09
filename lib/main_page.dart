@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nklcb/company_colors.dart';
+import 'package:nklcb/article_list_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -12,7 +12,7 @@ class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[
-    Text('Article Page'),
+    ArticleListPage(),
     Text('Keyword Page'),
     Text('Bookmark Page'),
     Text('Setting Page'),
@@ -51,9 +51,9 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: CompanyColors.colors['NAVER'],
-        unselectedItemColor: Colors.black, // 선택되지 않은 아이콘 색상을 검정색으로 설정
-        backgroundColor: Colors.white, // 네비게이션 바 배경색을 흰색으로 설정
+        selectedItemColor: const Color(0xFF2DB400),
+        unselectedItemColor: Colors.black,
+        backgroundColor: Colors.white,
         onTap: _onItemTapped,
       ),
     );
