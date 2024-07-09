@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nklcb/company_colors.dart';
+import 'package:nklcb/app_colors.dart';
 import 'package:nklcb/main_page.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -30,8 +30,6 @@ class _SplashScreenState extends State<SplashScreen> {
     const double fontSize = 50.0;
     const FontWeight fontWeight = FontWeight.bold;
 
-    const Map<String, Color> colors = CompanyColors.colors;
-
     TextStyle textStyle(Color color) {
       return TextStyle(
         fontFamily: fontFamily,
@@ -48,23 +46,23 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               TextSpan(
                 text: '네',
-                style: textStyle(colors['NAVER']!),
+                style: textStyle(AppColors.naverGreen),
               ),
               TextSpan(
                 text: '카',
-                style: textStyle(colors['KAKAO']!),
+                style: textStyle(AppColors.kakaoYellow),
               ),
               TextSpan(
                 text: '라',
-                style: textStyle(colors['LINE']!),
+                style: textStyle(AppColors.lineGreen),
               ),
               TextSpan(
                 text: '쿠',
-                style: textStyle(colors['COUPANG']!),
+                style: textStyle(AppColors.coupangRed),
               ),
               TextSpan(
                 text: '배',
-                style: textStyle(colors['Woowa Brothers']!),
+                style: textStyle(AppColors.woowaTurquoise),
               ),
             ],
           ),
