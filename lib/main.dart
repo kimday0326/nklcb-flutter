@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:nklcb/splash_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const NKLCBApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class NKLCBApp extends StatelessWidget {
+  const NKLCBApp({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:nklcb/constants/info_container.dart';
 import 'package:nklcb/dto/article_detail.dart';
-import 'package:nklcb/pages/article_content_view.dart';
 import 'package:nklcb/utils/date_utils.dart';
+import 'package:nklcb/views/article_content_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ArticleDetailPage extends StatefulWidget {

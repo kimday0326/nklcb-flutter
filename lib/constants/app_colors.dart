@@ -8,7 +8,7 @@ class AppColors {
   static const Color woowaTurquoise = Color(0xFF48D1CC);
   static const Color defaultColor = Color.fromARGB(255, 74, 74, 74);
 
-  static const Map<String, Color> _companyColors = {
+  static const Map<String, Color> companyColors = {
     'naver': naverGreen,
     'kakao': kakaoYellow,
     'line': lineGreen,
@@ -18,9 +18,9 @@ class AppColors {
 
   static Color getCompanyColor(String companyName) {
     companyName = companyName.toLowerCase();
-    for (String key in _companyColors.keys) {
+    for (String key in companyColors.keys) {
       if (companyName.contains(key)) {
-        return _companyColors[key]!;
+        return companyColors[key]!;
       }
     }
     return defaultColor;

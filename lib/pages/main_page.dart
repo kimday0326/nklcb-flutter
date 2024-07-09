@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nklcb/pages/article_page.dart';
+import 'package:nklcb/pages/keyword_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -13,7 +14,7 @@ class _MainPageState extends State<MainPage> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     ArticlePage(),
-    Text('Keyword Page'),
+    KeywordPage(title: "title"),
     Text('Bookmark Page'),
     Text('Setting Page'),
   ];
@@ -27,8 +28,11 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+      backgroundColor: const Color(0xFFEEEEEE),
+      body: SafeArea(
+        child: Center(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
