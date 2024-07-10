@@ -23,10 +23,10 @@ class _ArticlePageState extends State<ArticlePage> {
   @override
   void initState() {
     super.initState();
-    fetchArticles();
+    _fetchArticles();
   }
 
-  Future<void> fetchArticles() async {
+  Future<void> _fetchArticles() async {
     setState(() {
       isLoading = true;
     });
@@ -57,8 +57,8 @@ class _ArticlePageState extends State<ArticlePage> {
     }
   }
 
-  Future<void> fetchMoreArticles() async {
-    await fetchArticles();
+  Future<void> _fetchMoreArticles() async {
+    await _fetchArticles();
     debugPrint('Fetched more articles');
   }
 
@@ -82,7 +82,7 @@ class _ArticlePageState extends State<ArticlePage> {
                 final currentScroll = scrollNotification.metrics.pixels;
                 final delta = MediaQuery.of(context).size.height * 0.50;
                 if (maxScroll - currentScroll <= delta) {
-                  fetchMoreArticles();
+                  _fetchMoreArticles();
                 }
               });
               return false;

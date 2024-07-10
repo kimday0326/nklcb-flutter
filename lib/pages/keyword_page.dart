@@ -21,10 +21,10 @@ class _KeywordPageState extends State<KeywordPage> {
   @override
   void initState() {
     super.initState();
-    fetchKeywords();
+    _fetchKeywords();
   }
 
-  Future<void> fetchKeywords() async {
+  Future<void> _fetchKeywords() async {
     final response = await http.get(
       Uri.parse('http://52.79.94.51/api/v1/keywords'),
       headers: {'accept': '*/*'},
@@ -40,7 +40,7 @@ class _KeywordPageState extends State<KeywordPage> {
     }
   }
 
-  Future<void> fetchArticleByKeyword(String keyword) async {
+  Future<void> _fetchArticleByKeyword(String keyword) async {
     final response = await http.get(
       Uri.parse('http://52.79.94.51/api/v1/keywords/$keyword/articles'),
       headers: {'accept': '*/*'},
@@ -65,7 +65,7 @@ class _KeywordPageState extends State<KeywordPage> {
     }
   }
 
-  Color getColorForValue(int value) {
+  Color _getColorForValue(int value) {
     int maxValue = keywords.isNotEmpty ? keywords[0]['value'] : 1;
     double opacity = value / maxValue;
     return Colors.green.withOpacity(opacity);
@@ -90,10 +90,10 @@ class _KeywordPageState extends State<KeywordPage> {
                 children: keywords.map((word) {
                   return ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: getColorForValue(word['value']),
+                      backgroundColor: _getColorForValue(word['value']),
                     ),
                     onPressed: () {
-                      fetchArticleByKeyword(word['word']);
+                      _fetchArticleByKeyword(word['word']);
                     },
                     child: Text(
                       '${word['word']}',
