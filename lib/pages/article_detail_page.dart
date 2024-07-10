@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:nklcb/constants/app_colors.dart';
 import 'package:nklcb/constants/info_container.dart';
-import 'package:nklcb/dto/article_detail.dart';
+import 'package:nklcb/models/article_detail.dart';
 import 'package:nklcb/utils/date_utils.dart';
 import 'package:nklcb/views/article_content_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';

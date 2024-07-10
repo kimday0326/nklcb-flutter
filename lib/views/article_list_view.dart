@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nklcb/constants/app_colors.dart';
-import 'package:nklcb/dto/article_summary.dart';
+import 'package:nklcb/models/article_summary.dart';
 import 'package:nklcb/views/article_card_view.dart';
 
 class ArticleListView extends StatelessWidget {

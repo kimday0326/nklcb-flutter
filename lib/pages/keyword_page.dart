@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:nklcb/constants/app_colors.dart';
-import 'package:nklcb/dto/article_summary.dart';
+import 'package:nklcb/models/article_summary.dart';
 import 'package:nklcb/views/article_list_view.dart';
 
 class KeywordPage extends StatefulWidget {

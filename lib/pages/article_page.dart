@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:nklcb/dto/article_summary.dart';
+import 'package:nklcb/models/article_summary.dart';
 import 'package:nklcb/views/article_list_view.dart';
 
 class ArticlePage extends StatefulWidget {

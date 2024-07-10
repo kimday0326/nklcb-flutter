@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nklcb/dto/article_summary.dart';
+import 'package:nklcb/models/article_summary.dart';
 import 'package:nklcb/pages/article_detail_page.dart';
 import 'package:nklcb/utils/date_utils.dart';
 

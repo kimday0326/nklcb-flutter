@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nklcb/constants/app_colors.dart';
-import 'package:nklcb/splash_screen.dart';
+import 'package:nklcb/pages/splash_screen.dart';
 
 void main() {
   runApp(const NKLCBApp());
