@@ -9,11 +9,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  # HTTP 요청, HTML 렌더링, URL 열기
   http: ^1.2.1
   flutter_html: ^3.0.0-beta.2
   url_launcher: ^6.3.0
-  word_cloud: ^1.0.3
+
+  # 다국어 지원 및 로컬 데이터 저장
   intl: ^0.19.0
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:

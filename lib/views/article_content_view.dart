@@ -23,7 +23,7 @@ class ArticleContentView extends StatelessWidget {
       );
     } else {
       return Padding(
-        padding: const EdgeInsets.only(bottom: 16.0),
+        padding: const EdgeInsets.symmetric(vertical: 16.0),
         child: Text(
           content,
           style: const TextStyle(fontSize: 16.0),

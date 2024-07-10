@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nklcb/pages/article_page.dart';
+import 'package:nklcb/pages/bookmark_page.dart';
 import 'package:nklcb/pages/keyword_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -15,9 +16,13 @@ class _MainPageState extends State<MainPage> {
   static const List<Widget> _widgetOptions = <Widget>[
     ArticlePage(),
     KeywordPage(),
-    Text('Bookmark Page'),
-    Text('Setting Page'),
+    BookmarkPage(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -50,10 +55,6 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.bookmark),
             label: 'Bookmark',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Setting',
           ),
         ],
         currentIndex: _selectedIndex,
