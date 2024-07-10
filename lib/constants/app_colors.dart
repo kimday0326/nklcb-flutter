@@ -7,7 +7,9 @@ class AppColors {
   static const Color lineGreen = Color(0xFF2BE567);
   static const Color coupangRed = Color(0xFFF23C24);
   static const Color woowaTurquoise = Color(0xFF48D1CC);
-  static const Color defaultColor = Color.fromARGB(255, 74, 74, 74);
+  static const Color tossBlue = Color(0xFF0064FF);
+  static const Color daangnOrange = Color(0xFFFD5810);
+  static const Color defaultColor = Color(0xFF202632);
 
   static const Map<String, Color> companyColors = {
     'naver': naverGreen,
@@ -15,6 +17,8 @@ class AppColors {
     'line': lineGreen,
     'coupang': coupangRed,
     'woowa': woowaTurquoise,
+    'toss': tossBlue,
+    '당근': daangnOrange,
   };
 
   static Color getCompanyColor(String companyName) {
