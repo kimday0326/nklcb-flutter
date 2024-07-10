@@ -13,6 +13,7 @@ class NKLCBApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'NKLCB',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: AppColors.primaryColor,
         fontFamily: 'NanumSquare',

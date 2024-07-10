@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:nklcb/constants/app_colors.dart';
 import 'package:nklcb/models/article_summary.dart';
+import 'package:nklcb/models/keyword.dart';
 import 'package:nklcb/views/article_list_view.dart';
 
 class KeywordPage extends StatefulWidget {
@@ -15,7 +16,7 @@ class KeywordPage extends StatefulWidget {
 }
 
 class _KeywordPageState extends State<KeywordPage> {
-  List<Map> keywords = [];
+  List<Keyword> keywords = [];
   List<ArticleSummary> articles = [];
 
   @override
@@ -32,8 +33,10 @@ class _KeywordPageState extends State<KeywordPage> {
 
     if (response.statusCode == 200) {
       setState(() {
-        keywords = List<Map>.from(json.decode(utf8.decode(response.bodyBytes)))
-          ..sort((a, b) => b['value'].compareTo(a['value']));
+        keywords = (json.decode(utf8.decode(response.bodyBytes)) as List)
+            .map((data) => Keyword.fromJson(data))
+            .toList()
+          ..sort((a, b) => b.value.compareTo(a.value));
       });
     } else {
       throw Exception('Failed to load keywords');
@@ -66,7 +69,7 @@ class _KeywordPageState extends State<KeywordPage> {
   }
 
   Color _getColorForValue(int value) {
-    int maxValue = keywords.isNotEmpty ? keywords[0]['value'] : 1;
+    int maxValue = keywords.isNotEmpty ? keywords[0].value : 1;
     double opacity = value / maxValue;
     return Colors.green.withOpacity(opacity);
   }
@@ -90,13 +93,13 @@ class _KeywordPageState extends State<KeywordPage> {
                 children: keywords.map((word) {
                   return ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: _getColorForValue(word['value']),
+                      backgroundColor: _getColorForValue(word.value),
                     ),
                     onPressed: () {
-                      _fetchArticleByKeyword(word['word']);
+                      _fetchArticleByKeyword(word.name);
                     },
                     child: Text(
-                      '${word['word']}',
+                      word.name,
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 14.0,
