@@ -66,6 +66,14 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
     prefs.setStringList('bookmarks', bookmarks);
   }
 
+  String _formatAritcleAuthor(String company, String author) {
+    if (author.isEmpty) {
+      return company;
+    } else {
+      return '$company. $author';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -136,7 +144,7 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
             ),
             const SizedBox(height: 8.0),
             Text(
-              "${article.company} | ${DateTimeUtils.formatDate(article.publishedAt)}",
+              "${_formatAritcleAuthor(article.company, article.author)} | ${DateTimeUtils.formatDate(article.publishedAt)} ",
               style: TextStyle(color: Colors.grey[700], fontSize: 14.0),
             ),
             const SizedBox(height: 16.0),
