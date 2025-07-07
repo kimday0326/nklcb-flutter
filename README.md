@@ -2,6 +2,9 @@
 
 NKLCB Flutter는 테크 블로그 크롤링 서비스인 "네카라쿠배"의 모바일 애플리케이션입니다.
 
+PDF: [nklkb.pdf](https://github.com/user-attachments/files/21110079/nklkb.pdf)
+
+
 ## Stack
 
 - Dart
